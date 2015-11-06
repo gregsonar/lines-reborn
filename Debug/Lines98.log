@@ -1,0 +1,39 @@
+﻿Сборка начата 06.11.2015 15:17:51.
+     1>Проект "C:\Users\Black\Dropbox\lines_src\Lines98.vcxproj" в узле 2 (целевые объекты Build).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Lines.cpp
+         Lines.cpp
+     1>Lines.cpp(191): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\time.h(495): note:  см. объявление "gmtime"
+     1>Lines.cpp(455): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+     1>Lines.cpp(785): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\time.h(495): note:  см. объявление "gmtime"
+     1>Lines.cpp(1182): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\time.h(495): note:  см. объявление "gmtime"
+     1>Lines.cpp(1210): warning C4996: 'gmtime': This function or variable may be unsafe. Consider using gmtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\time.h(495): note:  см. объявление "gmtime"
+     1>Lines.cpp(1285): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+     1>Lines.cpp(1309): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.10150.0\ucrt\stdio.h(205): note:  см. объявление "fopen"
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(630,5): warning MSB4220: ожидание отмены выполняемой в текущий момент задачи "Link".
