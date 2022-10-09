@@ -10,36 +10,36 @@
 
 #define MENU_HEIGHT 45
 
-#define TOP_HEIGHT 46	// Высота табло (где отображаются очки) в пикселах
-#define CELL_SIZE 45	//Размер стороны ячейки в пикселах (они все квадратные)
+#define TOP_HEIGHT 46	// Р’С‹СЃРѕС‚Р° С‚Р°Р±Р»Рѕ (РіРґРµ РѕС‚РѕР±СЂР°Р¶Р°СЋС‚СЃСЏ РѕС‡РєРё) РІ РїРёРєСЃРµР»Р°С…
+#define CELL_SIZE 45	//Р Р°Р·РјРµСЂ СЃС‚РѕСЂРѕРЅС‹ СЏС‡РµР№РєРё РІ РїРёРєСЃРµР»Р°С… (РѕРЅРё РІСЃРµ РєРІР°РґСЂР°С‚РЅС‹Рµ)
 
-#define N1 4	//Количество картинок для появления шарика
-#define N2 12	//Количество картинок для прыжка шарика
-#define N3 9	//Количество картинок для удаления шарика
+#define N1 4	//РљРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚РёРЅРѕРє РґР»СЏ РїРѕСЏРІР»РµРЅРёСЏ С€Р°СЂРёРєР°
+#define N2 12	//РљРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚РёРЅРѕРє РґР»СЏ РїСЂС‹Р¶РєР° С€Р°СЂРёРєР°
+#define N3 9	//РљРѕР»РёС‡РµСЃС‚РІРѕ РєР°СЂС‚РёРЅРѕРє РґР»СЏ СѓРґР°Р»РµРЅРёСЏ С€Р°СЂРёРєР°
 
-#define MAX_MAP_X 20	//Максимальный размер поля по x
-#define MAX_MAP_Y 12    //Максимальный размер поля по y
+#define MAX_MAP_X 20	//РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕР»СЏ РїРѕ x
+#define MAX_MAP_Y 12    //РњР°РєСЃРёРјР°Р»СЊРЅС‹Р№ СЂР°Р·РјРµСЂ РїРѕР»СЏ РїРѕ y
 
 //All my changes in this file mrked with "medo" comment
-//Все мои изменения ищите по комментарию "medo"
+//Р’СЃРµ РјРѕРё РёР·РјРµРЅРµРЅРёСЏ РёС‰РёС‚Рµ РїРѕ РєРѕРјРјРµРЅС‚Р°СЂРёСЋ "medo"
 
 struct
 {
-	//Состояние автомата для этой ячейки
+	//РЎРѕСЃС‚РѕСЏРЅРёРµ Р°РІС‚РѕРјР°С‚Р° РґР»СЏ СЌС‚РѕР№ СЏС‡РµР№РєРё
 	int y;
-	//Цвет шарика в этой ячейке
+	//Р¦РІРµС‚ С€Р°СЂРёРєР° РІ СЌС‚РѕР№ СЏС‡РµР№РєРµ
 	int color;
-	//Цвет шарика-подсказки в этой ячейке
-	//(когда игровой шарик проходит через эту ячейку, тогда color != pre_color)
+	//Р¦РІРµС‚ С€Р°СЂРёРєР°-РїРѕРґСЃРєР°Р·РєРё РІ СЌС‚РѕР№ СЏС‡РµР№РєРµ
+	//(РєРѕРіРґР° РёРіСЂРѕРІРѕР№ С€Р°СЂРёРє РїСЂРѕС…РѕРґРёС‚ С‡РµСЂРµР· СЌС‚Сѓ СЏС‡РµР№РєСѓ, С‚РѕРіРґР° color != pre_color)
 	int pre_color;
-	//Номер картинки, выводимой в текущий момент, при появлении, удалении, прыжке шарика
+	//РќРѕРјРµСЂ РєР°СЂС‚РёРЅРєРё, РІС‹РІРѕРґРёРјРѕР№ РІ С‚РµРєСѓС‰РёР№ РјРѕРјРµРЅС‚, РїСЂРё РїРѕСЏРІР»РµРЅРёРё, СѓРґР°Р»РµРЅРёРё, РїСЂС‹Р¶РєРµ С€Р°СЂРёРєР°
 	int num_pic;
 } 
 
-// Игровое поле
+// РРіСЂРѕРІРѕРµ РїРѕР»Рµ
 map[MAX_MAP_X][MAX_MAP_Y];	
 
-// Цвет игрового шарика
+// Р¦РІРµС‚ РёРіСЂРѕРІРѕРіРѕ С€Р°СЂРёРєР°
 int ball_color;
 
 
@@ -49,32 +49,32 @@ struct info
 	int time;
 	char name[30];
 }
-// Лучшие результаты
+// Р›СѓС‡С€РёРµ СЂРµР·СѓР»СЊС‚Р°С‚С‹
 leaders[3];
 
-// Минимальный результат, чтобы попасть в таблицу
+// РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚, С‡С‚РѕР±С‹ РїРѕРїР°СЃС‚СЊ РІ С‚Р°Р±Р»РёС†Сѓ
 const info null_leader={100,3600,"noname"};
 
-// Состояние автомата управления игрой
+// РЎРѕСЃС‚РѕСЏРЅРёРµ Р°РІС‚РѕРјР°С‚Р° СѓРїСЂР°РІР»РµРЅРёСЏ РёРіСЂРѕР№
 int y_lines;
 
-// Время игры
+// Р’СЂРµРјСЏ РёРіСЂС‹
 int gametime;
-// Очки
+// РћС‡РєРё
 int gamescore;
-// Тип игры: 0-easy, 1-normal, 2-hard, 3-custom
+// РўРёРї РёРіСЂС‹: 0-easy, 1-normal, 2-hard, 3-custom
 int gametype;
 
-// Текущий размер поля
-int max_x; // по x
-int max_y; // по y
-//Количество появляющихся шаров
+// РўРµРєСѓС‰РёР№ СЂР°Р·РјРµСЂ РїРѕР»СЏ
+int max_x; // РїРѕ x
+int max_y; // РїРѕ y
+//РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕСЏРІР»СЏСЋС‰РёС…СЃСЏ С€Р°СЂРѕРІ
 int app_balls;
-//Количество удаляемых шаров
+//РљРѕР»РёС‡РµСЃС‚РІРѕ СѓРґР°Р»СЏРµРјС‹С… С€Р°СЂРѕРІ
 int del_balls;
 
 
-#define LOGGING //Включаем логирование
+#define LOGGING //Р’РєР»СЋС‡Р°РµРј Р»РѕРіРёСЂРѕРІР°РЅРёРµ
 
 #ifdef LOGGING
 //FILE *log;
@@ -82,21 +82,21 @@ FILE *mylog; //medo
 
 const char* aCell_states[6] = 
 {
-  "Отсутствие шара",
-  "Подсказка",
-  "Появление шара",
-  "Шар стоит",
-  "Шар прыгает",
-  "Удаление шара"
+  "РћС‚СЃСѓС‚СЃС‚РІРёРµ С€Р°СЂР°",
+  "РџРѕРґСЃРєР°Р·РєР°",
+  "РџРѕСЏРІР»РµРЅРёРµ С€Р°СЂР°",
+  "РЁР°СЂ СЃС‚РѕРёС‚",
+  "РЁР°СЂ РїСЂС‹РіР°РµС‚",
+  "РЈРґР°Р»РµРЅРёРµ С€Р°СЂР°"
 };
 
 const char* aLines_states[5] = 
 {
-  "Поиск игрового шара",
-  "Поиск куда послать игровой шар",
-  "Передвижение игрового шара",
-  "Удаление линий",
-  "Появление новых шаров"
+  "РџРѕРёСЃРє РёРіСЂРѕРІРѕРіРѕ С€Р°СЂР°",
+  "РџРѕРёСЃРє РєСѓРґР° РїРѕСЃР»Р°С‚СЊ РёРіСЂРѕРІРѕР№ С€Р°СЂ",
+  "РџРµСЂРµРґРІРёР¶РµРЅРёРµ РёРіСЂРѕРІРѕРіРѕ С€Р°СЂР°",
+  "РЈРґР°Р»РµРЅРёРµ Р»РёРЅРёР№",
+  "РџРѕСЏРІР»РµРЅРёРµ РЅРѕРІС‹С… С€Р°СЂРѕРІ"
 };
 
 #endif
@@ -114,12 +114,12 @@ TCHAR szWindowClass[] = "LINES";
 
 RECT clRect;
 
-// Класс "Ячейка"
+// РљР»Р°СЃСЃ "РЇС‡РµР№РєР°"
 class cell
 {
 public:
-	int posx; // Позиция ячейки на поле (слева направо от 0)
-	int posy; // Позиция ячейки на поле (сверху вниз от 0)
+	int posx; // РџРѕР·РёС†РёСЏ СЏС‡РµР№РєРё РЅР° РїРѕР»Рµ (СЃР»РµРІР° РЅР°РїСЂР°РІРѕ РѕС‚ 0)
+	int posy; // РџРѕР·РёС†РёСЏ СЏС‡РµР№РєРё РЅР° РїРѕР»Рµ (СЃРІРµСЂС…Сѓ РІРЅРёР· РѕС‚ 0)
 	bool operator ==(const cell & b) const
 	{return (b.posx == posx && b.posy == posy);}
 	bool operator !=(const cell & b) const
@@ -133,7 +133,7 @@ public:
 	int & NumPic() const
 	{return map[posx][posy].num_pic;}
 
-	// автомат "ячейка"
+	// Р°РІС‚РѕРјР°С‚ "СЏС‡РµР№РєР°"
 	void ACell(int e) const
 	{
 		int &y=State();
@@ -144,37 +144,37 @@ public:
 
 		switch(y)
 		{
-		// Отсутствие шара
+		// РћС‚СЃСѓС‚СЃС‚РІРёРµ С€Р°СЂР°
 		case 0:
 			if (e==1)			{z0();		y=3;}
 			if (e==2 && x0())	{z4();		y=1;}
 			else if (e==2)		{z1();		y=1;}
 			break;
-		// Подсказка
+		// РџРѕРґСЃРєР°Р·РєР°
 		case 1:
 			if (e==1)			{z2();		y=3;}
 			if (e==3)						y=2;
 			break;
-		// Появление шара
+		// РџРѕСЏРІР»РµРЅРёРµ С€Р°СЂР°
 		case 2:
 			if (e==3 && x1())	{z6();		y=3;}
 			else if (e==3)		{z5();}
 			break;
-		// Шар стоит
+		// РЁР°СЂ СЃС‚РѕРёС‚
 		case 3:
 			if (e==0 && x0() )	{z4();		y=1;}
 			else if (e==0)		{z3();		y=0;}
 			if (e==4) 						y=5;
 			if (e==5)						y=4;
 			break;
-		// Шар прыгает
+		// РЁР°СЂ РїСЂС‹РіР°РµС‚
 		case 4:
 			if (e==0)			{z6();z3();		y=0;}
 			if (e==6)			{z6();			y=3;}
 			if (e==5 && x2())	{z6();}
 			else if (e==5)		{z5();}
 			break;
-		// Удаление шара
+		// РЈРґР°Р»РµРЅРёРµ С€Р°СЂР°
 		case 5:
 			if (e==4 && x3() && x0())	{z6();z4();		y=1;}
 			else if (e==4 && x3())		{z6();z3();		y=0;}
@@ -189,8 +189,8 @@ public:
 			time_t t;
 			time(&t);
 			strftime(s,30,"%X", gmtime(&t));
-			//fprintf(log,"[%s] => Ячейка (%d,%d) из состояния \"%s\" перешла в состояние \"%s\".\n",s,posx+1,posy+1,aCell_states[y_old],aCell_states[y]);
-			fprintf(mylog, "[%s] => Ячейка (%d,%d) из состояния \"%s\" перешла в состояние \"%s\".\n", s, posx + 1, posy + 1, aCell_states[y_old], aCell_states[y]); //medo
+			//fprintf(log,"[%s] => РЇС‡РµР№РєР° (%d,%d) РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ \"%s\" РїРµСЂРµС€Р»Р° РІ СЃРѕСЃС‚РѕСЏРЅРёРµ \"%s\".\n",s,posx+1,posy+1,aCell_states[y_old],aCell_states[y]);
+			fprintf(mylog, "[%s] => РЇС‡РµР№РєР° (%d,%d) РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ \"%s\" РїРµСЂРµС€Р»Р° РІ СЃРѕСЃС‚РѕСЏРЅРёРµ \"%s\".\n", s, posx + 1, posy + 1, aCell_states[y_old], aCell_states[y]); //medo
 		}
 		#endif
 
@@ -205,63 +205,63 @@ public:
 	}
 
 private:
-	//ВХОДЯЩИЕ ПЕРЕМЕННЫЕ
+	//Р’РҐРћР”РЇР©РР• РџР•Р Р•РњР•РќРќР«Р•
 	
-	//Требуется восстановление подсказки
+	//РўСЂРµР±СѓРµС‚СЃСЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РїРѕРґСЃРєР°Р·РєРё
 	bool x0() const
 	{return PreColor()!=-1;}
-	//Последняя стадия появления шара
+	//РџРѕСЃР»РµРґРЅСЏСЏ СЃС‚Р°РґРёСЏ РїРѕСЏРІР»РµРЅРёСЏ С€Р°СЂР°
 	bool x1() const
 	{return (NumPic()==N1-1);}
-	//Последняя стадия прыжка для шара
+	//РџРѕСЃР»РµРґРЅСЏСЏ СЃС‚Р°РґРёСЏ РїСЂС‹Р¶РєР° РґР»СЏ С€Р°СЂР°
 	bool x2() const
 	{return (NumPic()==N2-1);}
-	//Последняя стадия удаления шара
+	//РџРѕСЃР»РµРґРЅСЏСЏ СЃС‚Р°РґРёСЏ СѓРґР°Р»РµРЅРёСЏ С€Р°СЂР°
 	bool x3() const
 	{return (NumPic()==N3-1);}
 	
-	//ВЫХОДЯЩИЕ ВОЗДЕЙСТВИЯ
+	//Р’Р«РҐРћР”РЇР©РР• Р’РћР—Р”Р•Р™РЎРўР’РРЇ
 
-	//Установить в ячейке двигающийся шар
+	//РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІ СЏС‡РµР№РєРµ РґРІРёРіР°СЋС‰РёР№СЃСЏ С€Р°СЂ
 	void z0() const
 	{Color()=ball_color;}
-	//Генерировать подсказку
+	//Р“РµРЅРµСЂРёСЂРѕРІР°С‚СЊ РїРѕРґСЃРєР°Р·РєСѓ
 	void z1() const
 	{Color()=random(7);}
-	//Очистить ячейку
+	//РћС‡РёСЃС‚РёС‚СЊ СЏС‡РµР№РєСѓ
 	void z2() const
 	{PreColor()=Color();Color()=ball_color;}
-	//Установить в ячейке с подсказкой двигающийся шар
+	//РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РІ СЏС‡РµР№РєРµ СЃ РїРѕРґСЃРєР°Р·РєРѕР№ РґРІРёРіР°СЋС‰РёР№СЃСЏ С€Р°СЂ
 	void z3() const
 	{Color()=0;}
-	//Восстановить подсказку
+	//Р’РѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕРґСЃРєР°Р·РєСѓ
 	void z4() const
 	{Color()=PreColor();PreColor()=-1;}
-	//Вывести на экран следующую картинку для текущего состояния
+	//Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ СЃР»РµРґСѓСЋС‰СѓСЋ РєР°СЂС‚РёРЅРєСѓ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	void z5() const
 	{++NumPic();}
-	//Вывести на экран первую картинку для текущего состояния
+	//Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ РїРµСЂРІСѓСЋ РєР°СЂС‚РёРЅРєСѓ РґР»СЏ С‚РµРєСѓС‰РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ
 	void z6() const
 	{NumPic()=0;}
 
 };
 
-//Игровой шар
+//РРіСЂРѕРІРѕР№ С€Р°СЂ
 cell ball;
-//Выбранный шар (ткнули мышкой)
+//Р’С‹Р±СЂР°РЅРЅС‹Р№ С€Р°СЂ (С‚РєРЅСѓР»Рё РјС‹С€РєРѕР№)
 cell click_ball;
 
-//Список появляющихся шаров
+//РЎРїРёСЃРѕРє РїРѕСЏРІР»СЏСЋС‰РёС…СЃСЏ С€Р°СЂРѕРІ
 std::list<cell> appear_list;
-//Список удаляющихся шаров
+//РЎРїРёСЃРѕРє СѓРґР°Р»СЏСЋС‰РёС…СЃСЏ С€Р°СЂРѕРІ
 std::list<cell> explode_list;
-//Путь по которому проходит двигающийся шар
+//РџСѓС‚СЊ РїРѕ РєРѕС‚РѕСЂРѕРјСѓ РїСЂРѕС…РѕРґРёС‚ РґРІРёРіР°СЋС‰РёР№СЃСЏ С€Р°СЂ
 std::stack<cell> path;
 
 std::list<cell>::iterator itr;
 
 
-// Прототипы функций, встречаемых далее в программе
+// РџСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№, РІСЃС‚СЂРµС‡Р°РµРјС‹С… РґР°Р»РµРµ РІ РїСЂРѕРіСЂР°РјРјРµ
 void ALines(int);
 void z0();
 void z1_1();
@@ -313,7 +313,7 @@ LRESULT CALLBACK	BestResults(HWND, UINT, WPARAM, LPARAM);
 LRESULT CALLBACK	GetName(HWND, UINT, WPARAM, LPARAM);
 
 
-//Главная функция окна
+//Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР°
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
@@ -334,7 +334,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	hAccelTable = LoadAccelerators(hInstance, (LPCTSTR)IDC_LINES);
 
-	//Главный цикл сообщений Windows
+	//Р“Р»Р°РІРЅС‹Р№ С†РёРєР» СЃРѕРѕР±С‰РµРЅРёР№ Windows
 	while (GetMessage(&msg, NULL, 0, 0)) 
 	{
 		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) 
@@ -347,7 +347,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	return msg.wParam;
 }
 
-//Регистрация класса окна
+//Р РµРіРёСЃС‚СЂР°С†РёСЏ РєР»Р°СЃСЃР° РѕРєРЅР°
 ATOM MyRegisterClass(HINSTANCE hInstance)
 {
 	WNDCLASSEX wcex;
@@ -369,7 +369,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 	return RegisterClassEx(&wcex);
 }
 
-// Создание и отображение окна
+// РЎРѕР·РґР°РЅРёРµ Рё РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕРєРЅР°
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hWnd = CreateWindow(szWindowClass, szTitle, 
@@ -387,7 +387,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    return TRUE;
 }
 
-// Главная функция окна
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР°
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static PAINTSTRUCT ps;
@@ -400,7 +400,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	switch (message) 
 	{
-// Обработка сообщения при создании окна
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРё СЃРѕР·РґР°РЅРёРё РѕРєРЅР°
 	case WM_CREATE:
 		randomize();
 
@@ -465,14 +465,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		SetTimer(hWnd,0,1000,NULL);
 		break;
 
-// Обработка сообщения от нажатия левой кнопки мыши
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РѕС‚ РЅР°Р¶Р°С‚РёСЏ Р»РµРІРѕР№ РєРЅРѕРїРєРё РјС‹С€Рё
 	case WM_LBUTTONDOWN:
 		click_ball.posx = LOWORD(lParam)/CELL_SIZE;
 		click_ball.posy = (HIWORD(lParam)-TOP_HEIGHT)/45;
 		ALines(0);
 		break;
 
-// Обработка сообщения от таймера
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РѕС‚ С‚Р°Р№РјРµСЂР°
 	case WM_TIMER:
 		switch (LOWORD(wParam))
 		{
@@ -486,7 +486,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		}
 		break;
 
-// Обработка сообщения WM_COMMAND
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ WM_COMMAND
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
@@ -542,7 +542,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		}
 		break;
-// Обработка сообщения при отрисовке окна
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРё РѕС‚СЂРёСЃРѕРІРєРµ РѕРєРЅР°
 	case WM_PAINT:
 		BeginPaint(hWnd, &ps);
 
@@ -553,7 +553,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		EndPaint(hWnd, &ps);
 		break;
-// Обработка сообщения при уничтожении окна
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РїСЂРё СѓРЅРёС‡С‚РѕР¶РµРЅРёРё РѕРєРЅР°
 	case WM_DESTROY:
 		DeleteObject(bmp_0);
 		DeleteObject(bmp_prestand);
@@ -598,14 +598,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		PostQuitMessage(0);
 		break;
-// Обработка сообщения по умолчанию
+// РћР±СЂР°Р±РѕС‚РєР° СЃРѕРѕР±С‰РµРЅРёСЏ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
 	return 0;
 }
 
-// Главная функция окна диалога About
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР° РґРёР°Р»РѕРіР° About
 LRESULT CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
@@ -624,7 +624,7 @@ LRESULT CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     return FALSE;
 }
 
-// Главная функция окна диалога Custom
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР° РґРёР°Р»РѕРіР° Custom
 LRESULT CALLBACK Custom(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static char szVal[10];
@@ -673,7 +673,7 @@ LRESULT CALLBACK Custom(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     return FALSE;
 }
 
-// Главная функция окна диалога BestResult
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР° РґРёР°Р»РѕРіР° BestResult
 LRESULT CALLBACK BestResults(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static char szVal[50];
@@ -708,7 +708,7 @@ LRESULT CALLBACK BestResults(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
 	}
     return FALSE;
 }
-// Главная функция окна диалога GetName
+// Р“Р»Р°РІРЅР°СЏ С„СѓРЅРєС†РёСЏ РѕРєРЅР° РґРёР°Р»РѕРіР° GetName
 LRESULT CALLBACK GetName(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	static char szVal[30];
@@ -736,18 +736,18 @@ LRESULT CALLBACK GetName(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
     return FALSE;
 }
 
-//Автомат "Управление игрой"
+//РђРІС‚РѕРјР°С‚ "РЈРїСЂР°РІР»РµРЅРёРµ РёРіСЂРѕР№"
 void ALines(int e)
 {
 	int y_old = y_lines;
 
 	switch(y_lines)
 	{
-	//Поиск игрового шара
+	//РџРѕРёСЃРє РёРіСЂРѕРІРѕРіРѕ С€Р°СЂР°
 	case 0:
 		if (e==0 && xk1() )				{ z0();				y_lines=1;}
 		break;
-	//Поиск куда послать игровой шар 
+	//РџРѕРёСЃРє РєСѓРґР° РїРѕСЃР»Р°С‚СЊ РёРіСЂРѕРІРѕР№ С€Р°СЂ 
 	case 1:
 		if (e==0 && xk0() && x0() )		{ z1_2(); z1_1();	y_lines=2;}
 		else 
@@ -757,18 +757,18 @@ void ALines(int e)
 		else
 		if (e==1)						{ z1_3(); }
 		break;
-	//Передвижение игрового шара
+	//РџРµСЂРµРґРІРёР¶РµРЅРёРµ РёРіСЂРѕРІРѕРіРѕ С€Р°СЂР°
 	case 2:
 		if	(e==1 && x1() && x2() )		{ z2_2(); z2_3();	y_lines=3;}
 		else if (e==1 && x1() )			{ z2_2(); z2_4();	y_lines=4;}
 		else if (e==1)					{ z2_1(); }
 		break;
-	//Удаление линии
+	//РЈРґР°Р»РµРЅРёРµ Р»РёРЅРёРё
 	case 3:
 		if (e==1 && x3() )				{ z3_2();			y_lines=0;}
 		else if (e==1)					{ z3_1(); }
 		break;
-	//Появление новых шаров
+	//РџРѕСЏРІР»РµРЅРёРµ РЅРѕРІС‹С… С€Р°СЂРѕРІ
 	case 4:
 		if (e==1 && x4() && x5() )		{ z4_2(); z2_3();	y_lines=3;}
 		else if (e==1 && x4() )			{ z4_2();			y_lines=0;}
@@ -783,8 +783,8 @@ void ALines(int e)
 		time_t t;
 		time(&t);
 		strftime(s,30,"%X", gmtime(&t));
-		//fprintf(log,"[%s] Автомат управления игрой из состояния \"%s\" перешел в состояние \"%s\".\n",s,aLines_states[y_old],aLines_states[y_lines]);
-		fprintf(mylog, "[%s] Автомат управления игрой из состояния \"%s\" перешел в состояние \"%s\".\n", s, aLines_states[y_old], aLines_states[y_lines]); //medo
+		//fprintf(log,"[%s] РђРІС‚РѕРјР°С‚ СѓРїСЂР°РІР»РµРЅРёСЏ РёРіСЂРѕР№ РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ \"%s\" РїРµСЂРµС€РµР» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ \"%s\".\n",s,aLines_states[y_old],aLines_states[y_lines]);
+		fprintf(mylog, "[%s] РђРІС‚РѕРјР°С‚ СѓРїСЂР°РІР»РµРЅРёСЏ РёРіСЂРѕР№ РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ \"%s\" РїРµСЂРµС€РµР» РІ СЃРѕСЃС‚РѕСЏРЅРёРµ \"%s\".\n", s, aLines_states[y_old], aLines_states[y_lines]); //medo
 	}
 	#endif
 	
@@ -806,52 +806,52 @@ void ALines(int e)
 	}
 }
 
-//ВХОДНЫЕ ПЕРЕМЕННЫЕ
+//Р’РҐРћР”РќР«Р• РџР•Р Р•РњР•РќРќР«Р•
 
-//Выбранная ячейка пуста
+//Р’С‹Р±СЂР°РЅРЅР°СЏ СЏС‡РµР№РєР° РїСѓСЃС‚Р°
 bool xk0()
 {
 	return (click_ball.State()==0 || click_ball.State()==1);
 }
-//В выбранной ячейке находиться шар
+//Р’ РІС‹Р±СЂР°РЅРЅРѕР№ СЏС‡РµР№РєРµ РЅР°С…РѕРґРёС‚СЊСЃСЏ С€Р°СЂ
 bool xk1()
 {
 	return (click_ball.State()==3);
 }
-//В выбранной ячейке находиться прыгающий шар
+//Р’ РІС‹Р±СЂР°РЅРЅРѕР№ СЏС‡РµР№РєРµ РЅР°С…РѕРґРёС‚СЊСЃСЏ РїСЂС‹РіР°СЋС‰РёР№ С€Р°СЂ
 bool xk2()
 {
 	return (click_ball.State()==4);
 }
 
-//Существует путь от активной ячейки до выбранной
+//РЎСѓС‰РµСЃС‚РІСѓРµС‚ РїСѓС‚СЊ РѕС‚ Р°РєС‚РёРІРЅРѕР№ СЏС‡РµР№РєРё РґРѕ РІС‹Р±СЂР°РЅРЅРѕР№
 bool x0()
 {
 	return FindPath(ball,click_ball);
 }
-//Передвижение закончилось
+//РџРµСЂРµРґРІРёР¶РµРЅРёРµ Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ
 bool x1()
 {
 	return path.empty();
 }
-//Требуется удалить линии (после передвижения)
+//РўСЂРµР±СѓРµС‚СЃСЏ СѓРґР°Р»РёС‚СЊ Р»РёРЅРёРё (РїРѕСЃР»Рµ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ)
 bool x2()
 {
 	return CheckLines(ball);
 }
-//Удаление закончилось
+//РЈРґР°Р»РµРЅРёРµ Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ
 bool x3()
 {
 	itr=explode_list.begin();
 	return (itr->State()==0);//N3
 }
-//Появление закончилось
+//РџРѕСЏРІР»РµРЅРёРµ Р·Р°РєРѕРЅС‡РёР»РѕСЃСЊ
 bool x4()
 {
 	itr=appear_list.begin();
 	return (itr->State()==3);//N1
 }
-//Требуется удалить линии (после появления шаров)
+//РўСЂРµР±СѓРµС‚СЃСЏ СѓРґР°Р»РёС‚СЊ Р»РёРЅРёРё (РїРѕСЃР»Рµ РїРѕСЏРІР»РµРЅРёСЏ С€Р°СЂРѕРІ)
 bool x5()
 {
 	itr=appear_list.begin();
@@ -861,32 +861,32 @@ bool x5()
 	return (explode_list.size()!=0);
 }
 
-// ВЫХОДНЫЕ ВОЗДЕЙСТВИЯ
+// Р’Р«РҐРћР”РќР«Р• Р’РћР—Р”Р•Р™РЎРўР’РРЇ
 
-//Запустить прыжок
+//Р—Р°РїСѓСЃС‚РёС‚СЊ РїСЂС‹Р¶РѕРє
 void z0()
 {
 	SetTimer(hWnd,1,50,NULL);
 	ball=click_ball;
 }
-//Запустить передвижение
+//Р—Р°РїСѓСЃС‚РёС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёРµ
 void z1_1()
 {
 	SetTimer(hWnd,1,50,NULL);
 	ball_color=ball.Color();
 }
-//Закончить прыжок
+//Р—Р°РєРѕРЅС‡РёС‚СЊ РїСЂС‹Р¶РѕРє
 void z1_2()
 {
 	KillTimer(hWnd,1);
 	ball.ACell(6);
 }
-//Прыгать
+//РџСЂС‹РіР°С‚СЊ
 void z1_3()
 {
 	ball.ACell(5);
 }
-//Передвинуть шар на следующую ячейку
+//РџРµСЂРµРґРІРёРЅСѓС‚СЊ С€Р°СЂ РЅР° СЃР»РµРґСѓСЋС‰СѓСЋ СЏС‡РµР№РєСѓ
 void z2_1()
 {
 	ball.ACell(0);
@@ -894,30 +894,30 @@ void z2_1()
 	path.pop();
 	ball.ACell(1);
 }
-//Закончить передвижение
+//Р—Р°РєРѕРЅС‡РёС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёРµ
 void z2_2()
 {
 	KillTimer(hWnd,1);
 }
-//Запустить  удаление
+//Р—Р°РїСѓСЃС‚РёС‚СЊ  СѓРґР°Р»РµРЅРёРµ
 void z2_3()
 {
 	SetTimer(hWnd,1,20,NULL);
 }
-//Запустить появление
+//Р—Р°РїСѓСЃС‚РёС‚СЊ РїРѕСЏРІР»РµРЅРёРµ
 void z2_4()
 {
 	CheckAppearList();
 	SetTimer(hWnd,1,50,NULL);
 }
-//Удалить
+//РЈРґР°Р»РёС‚СЊ
 void z3_1()
 {
 	itr=explode_list.begin();
 	while (itr!=explode_list.end())
 		(*itr++).ACell(4);
 }
-//Закончить удаление
+//Р—Р°РєРѕРЅС‡РёС‚СЊ СѓРґР°Р»РµРЅРёРµ
 void z3_2()
 {
 	KillTimer(hWnd,1);
@@ -927,21 +927,21 @@ void z3_2()
 
 	explode_list.clear(); 
 }
-//Появление
+//РџРѕСЏРІР»РµРЅРёРµ
 void z4_1()
 {
 	itr=appear_list.begin();
 	while (itr!=appear_list.end())
 		(*itr++).ACell(3);
 }
-//Закончить появление
+//Р—Р°РєРѕРЅС‡РёС‚СЊ РїРѕСЏРІР»РµРЅРёРµ
 void z4_2()
 {
 	KillTimer(hWnd,1);
 	GenerateAppearList();
 }
 
-//Проверка что через ячейку in проходит подлещащая удаления линия(или несколько линии)
+//РџСЂРѕРІРµСЂРєР° С‡С‚Рѕ С‡РµСЂРµР· СЏС‡РµР№РєСѓ in РїСЂРѕС…РѕРґРёС‚ РїРѕРґР»РµС‰Р°С‰Р°СЏ СѓРґР°Р»РµРЅРёСЏ Р»РёРЅРёСЏ(РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ Р»РёРЅРёРё)
 bool CheckLines(const cell &in)
 {
 	int x=in.posx;
@@ -1019,7 +1019,7 @@ bool CheckLines(const cell &in)
 
 }
 
-//Поиск пути следования шарика из ячейки from в in
+//РџРѕРёСЃРє РїСѓС‚Рё СЃР»РµРґРѕРІР°РЅРёСЏ С€Р°СЂРёРєР° РёР· СЏС‡РµР№РєРё from РІ in
 bool FindPath(const cell &from, const cell &in)
 {
 	struct
@@ -1087,7 +1087,7 @@ bool FindPath(const cell &from, const cell &in)
 	return false;
 }
 
-// Проверить список появляющихся шаров на предмент занятости соответствующей ячейки
+// РџСЂРѕРІРµСЂРёС‚СЊ СЃРїРёСЃРѕРє РїРѕСЏРІР»СЏСЋС‰РёС…СЃСЏ С€Р°СЂРѕРІ РЅР° РїСЂРµРґРјРµРЅС‚ Р·Р°РЅСЏС‚РѕСЃС‚Рё СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ СЏС‡РµР№РєРё
 void CheckAppearList()
 {
 	int tmp;
@@ -1107,7 +1107,7 @@ void CheckAppearList()
 
 }
 
-//Создать список появляющихся шаров
+//РЎРѕР·РґР°С‚СЊ СЃРїРёСЃРѕРє РїРѕСЏРІР»СЏСЋС‰РёС…СЃСЏ С€Р°СЂРѕРІ
 void GenerateAppearList()
 {
 	appear_list.clear();
@@ -1122,7 +1122,7 @@ void GenerateAppearList()
 
 }
 
-//Найти пустую ячейку
+//РќР°Р№С‚Рё РїСѓСЃС‚СѓСЋ СЏС‡РµР№РєСѓ
 bool FindEmptyCell(cell &in)
 {
 	cell l;
@@ -1152,13 +1152,13 @@ bool FindEmptyCell(cell &in)
 	return false;
 }
 
-//Проверить можно ли через ячейку in двигатся шару
+//РџСЂРѕРІРµСЂРёС‚СЊ РјРѕР¶РЅРѕ Р»Рё С‡РµСЂРµР· СЏС‡РµР№РєСѓ in РґРІРёРіР°С‚СЃСЏ С€Р°СЂСѓ
 bool Valid(const cell &in)
 {
 	return (in.posx >= 0) && (in.posx < max_x) && (in.posy >= 0) && (in.posy < max_y) && (in.State() == 0 || in.State() == 1);
 }
 
-//Подготовка ресурсов для новой игры 
+//РџРѕРґРіРѕС‚РѕРІРєР° СЂРµСЃСѓСЂСЃРѕРІ РґР»СЏ РЅРѕРІРѕР№ РёРіСЂС‹ 
 void NewGame()
 {
 	for (int i=0;i<max_x;i++)
@@ -1180,8 +1180,8 @@ void NewGame()
 	time_t t;
 	time(&t);
 	strftime(s,30,"%X", gmtime(&t));
-	//fprintf(log,"[%s] Новая игра\n",s);
-	fprintf(mylog, "[%s] Новая игра\n", s); //medo
+	//fprintf(log,"[%s] РќРѕРІР°СЏ РёРіСЂР°\n",s);
+	fprintf(mylog, "[%s] РќРѕРІР°СЏ РёРіСЂР°\n", s); //medo
 	#endif
 
 	SetTimer(hWnd,0,1000,NULL);
@@ -1198,7 +1198,7 @@ void NewGame()
 
 }
 
-//Обработка окончания игрового процесса
+//РћР±СЂР°Р±РѕС‚РєР° РѕРєРѕРЅС‡Р°РЅРёСЏ РёРіСЂРѕРІРѕРіРѕ РїСЂРѕС†РµСЃСЃР°
 void GameOver()
 {
 	KillTimer(hWnd,0);
@@ -1208,8 +1208,8 @@ void GameOver()
 	time_t t;
 	time(&t);
 	strftime(s,30,"%X", gmtime(&t));
-	//fprintf(log,"[%s] Конец игры\n",s);
-	fprintf(mylog,"[%s] Конец игры\n",s); //medo
+	//fprintf(log,"[%s] РљРѕРЅРµС† РёРіСЂС‹\n",s);
+	fprintf(mylog,"[%s] РљРѕРЅРµС† РёРіСЂС‹\n",s); //medo
 	#endif
 
 	if (gametype<3)
@@ -1225,7 +1225,7 @@ void GameOver()
 	NewGame();
 	InvalidateRect(hWnd,NULL,FALSE);
 }
-//Отрисовать на табло продолжительность игры
+//РћС‚СЂРёСЃРѕРІР°С‚СЊ РЅР° С‚Р°Р±Р»Рѕ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ РёРіСЂС‹
 void DrawTime()
 {
 	SelectObject(hCompatibleDC, bmp_numbers);
@@ -1243,7 +1243,7 @@ void DrawTime()
 	BitBlt(hDC,max_x*CELL_SIZE-56, 5,5,37,hCompatibleDC,0,0,SRCCOPY);
 	BitBlt(hDC,max_x*CELL_SIZE-104, 5,5,37,hCompatibleDC,0,0,SRCCOPY);
 }
-//Отрисовать на табло текущие очки
+//РћС‚СЂРёСЃРѕРІР°С‚СЊ РЅР° С‚Р°Р±Р»Рѕ С‚РµРєСѓС‰РёРµ РѕС‡РєРё
 void DrawScore()
 {
 	SelectObject(hCompatibleDC, bmp_numbers);
@@ -1254,14 +1254,14 @@ void DrawScore()
 		t /=10;
 	}
 }
-//Отрисовать табло
+//РћС‚СЂРёСЃРѕРІР°С‚СЊ С‚Р°Р±Р»Рѕ
 void DrawTop()
 {
 	PatBlt(hDC,0, 0, 46*max_x, 46, BLACKNESS);
 	DrawScore();
 	DrawTime();
 }
-//Проверить заданные параметры игры
+//РџСЂРѕРІРµСЂРёС‚СЊ Р·Р°РґР°РЅРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РёРіСЂС‹
 void CheckCustomParameters()
 {
 	if (max_x<6) max_x=6;
@@ -1278,7 +1278,7 @@ void CheckCustomParameters()
 		app_balls=max_x*max_y-del_balls;
 	}
 }
-//Получение информации о лучших игроках
+//РџРѕР»СѓС‡РµРЅРёРµ РёРЅС„РѕСЂРјР°С†РёРё Рѕ Р»СѓС‡С€РёС… РёРіСЂРѕРєР°С…
 void GetInfo()
 {
 	FILE *in;
@@ -1302,7 +1302,7 @@ void GetInfo()
 			leaders[i]=null_leader;
 	}
 }
-//Сохранить информацию о лучших игроках
+//РЎРѕС…СЂР°РЅРёС‚СЊ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ Р»СѓС‡С€РёС… РёРіСЂРѕРєР°С…
 void WriteInfo()
 {
 	FILE *out;
